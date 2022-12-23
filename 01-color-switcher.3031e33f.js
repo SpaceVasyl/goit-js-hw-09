@@ -1,0 +1,2 @@
+!function(){document.querySelector("body");var e=document.querySelector("[data-start]"),t=document.querySelector("[data-stop]"),n=null,c=!1;e.addEventListener("click",(function(){event.preventDefault(),!0!==c&&(c=!0,n=setInterval((function(){console.log("color changed just now")}),1e3))})),t.addEventListener("click",(function(){event.preventDefault(),clearInterval(n),c=!1}))}();
+//# sourceMappingURL=01-color-switcher.3031e33f.js.map
