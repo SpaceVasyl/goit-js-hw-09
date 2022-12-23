@@ -1,4 +1,4 @@
-const delayInput = document.querySelector(['delay']);
+const delayInput = document.querySelector();
 delayInput.addEventListener("input", (event) => {
  console.log(event.currentTarget.value);
 });
