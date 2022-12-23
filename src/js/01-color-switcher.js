@@ -1,19 +1,26 @@
-// function getRandomHexColor() {
-//   return `#${Math.floor(Math.random() * 16777215).toString(16)}`;
-// }
 
+const elementBody = document.querySelector("body");
 const startButton = document.querySelector("[data-start]");
 const stopButton = document.querySelector("[data-stop]");
-startButton.addEventListener("click", handleClick);
-
-function handleClick(event) {
+let timerNumb = null;
+let timerActive = false;
+startButton.addEventListener("click", () => {
     event.preventDefault();
-    console.log("press start");
-}
+    if (timerActive === true) {
+        return
+    }
+    timerActive = true;
+    timerNumb = setInterval(() => {
+            console.log(`color changed just now`);
+        }, 1000);
+});
 
-stopButton.addEventListener("click", clickButton);
-
-function clickButton(event) {
+// function getRandomHexColor() {
+//     return `#${Math.floor(Math.random() * 16777215).toString(16)}`; 
+// }
+stopButton.addEventListener("click", () => {
     event.preventDefault();
-    console.log("press stop");
-}
+    clearInterval(timerNumb);
+    timerActive = false;
+});
+
