@@ -11,13 +11,13 @@ startButton.addEventListener("click", () => {
     }
     timerActive = true;
     timerNumb = setInterval(() => {
-            console.log(`color changed just now`);
+        elementBody.style.backgroundColor = getRandomHexColor();
         }, 1000);
 });
 
-// function getRandomHexColor() {
-//     return `#${Math.floor(Math.random() * 16777215).toString(16)}`; 
-// }
+function getRandomHexColor() {
+    return `#${Math.floor(Math.random() * 16777215).toString(16)}`; 
+}
 stopButton.addEventListener("click", () => {
     event.preventDefault();
     clearInterval(timerNumb);
