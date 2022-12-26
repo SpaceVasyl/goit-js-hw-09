@@ -10,6 +10,9 @@ promiseButton.addEventListener("click", formHandler);
 function formHandler(event) {
   event.preventDefault();
   const { amount, delay, step } = obj;
-  
+  consoleLog(obj);
 }
-console.log(obj.delay);
+
+function consoleLog(some) {
+  console.log(some.delay);
+}
