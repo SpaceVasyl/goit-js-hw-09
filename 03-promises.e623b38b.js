@@ -1,0 +1,2 @@
+const e=document.querySelector(".form"),t=document.querySelector("button"),n={};e.addEventListener("input",(function(e){n[e.target.name]=e.target.value})),t.addEventListener("click",(function(e){e.preventDefault();const{amount:t,delay:o,step:r}=n;!function(e,t){const o=Math.random()>.3;new Promise(((e,t)=>{setTimeout((()=>{o?e("Success! Value passed to resolve function"):t("Error! Error passed to reject function")}),n.delay)}))}(n.amount,n.delay)}));
+//# sourceMappingURL=03-promises.e623b38b.js.map

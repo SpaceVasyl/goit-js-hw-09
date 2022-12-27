@@ -1,0 +1,2 @@
+!function(){var e=document.querySelector(".form"),t=document.querySelector("button"),n={};e.addEventListener("input",(function(e){n[e.target.name]=e.target.value})),t.addEventListener("click",(function(e){e.preventDefault();n.amount,n.delay,n.step;n.amount,n.delay,t=Math.random()>.3,new Promise((function(e,o){setTimeout((function(){t?e("Success! Value passed to resolve function"):o("Error! Error passed to reject function")}),n.delay)}));var t}))}();
+//# sourceMappingURL=03-promises.fd794079.js.map
