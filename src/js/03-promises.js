@@ -18,10 +18,18 @@ function createPromise(position, delay) {
   const promise = new Promise((resolve, reject) => {
   setTimeout(() => {
   if (shouldResolve) {
-    resolve("Success! Value passed to resolve function");
+    createPromise.then(({ position, delay }) => {
+    console.log(`✅ Fulfilled promise ${position} in ${delay}ms`);
+  })
   } else {
-    reject("Error! Error passed to reject function");
+   createPromise.catch(({ position, delay }) => {
+    console.log(`❌ Rejected promise ${position} in ${delay}ms`);
+  });
   }
     }, obj.delay);
 });
 }
+
+
+  
+  
