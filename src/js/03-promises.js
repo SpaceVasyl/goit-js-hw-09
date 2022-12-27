@@ -10,9 +10,18 @@ promiseButton.addEventListener("click", formHandler);
 function formHandler(event) {
   event.preventDefault();
   const { amount, delay, step } = obj;
-  consoleLog(obj);
+  createPromise(obj.amount, obj.delay)
 }
 
-function consoleLog(some) {
-  console.log(some.delay);
+function createPromise(position, delay) {
+  const shouldResolve = Math.random() > 0.3;
+  const promise = new Promise((resolve, reject) => {
+  setTimeout(() => {
+  if (shouldResolve) {
+    resolve("Success! Value passed to resolve function");
+  } else {
+    reject("Error! Error passed to reject function");
+  }
+    }, obj.delay);
+});
 }
