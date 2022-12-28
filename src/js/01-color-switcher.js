@@ -6,7 +6,7 @@ let timerNumb = null;
 stopButton.disabled = true;
 
 startButton.addEventListener("click", () => {
-    event.preventDefault();
+    elementBody.style.backgroundColor = getRandomHexColor();
     startButton.disabled = true;
     stopButton.disabled = false;
     timerActive = true;
@@ -19,7 +19,6 @@ function getRandomHexColor() {
     return `#${Math.floor(Math.random() * 16777215).toString(16)}`; 
 }
 stopButton.addEventListener("click", () => {
-    event.preventDefault();
     clearInterval(timerNumb);
     startButton.disabled = false;
     stopButton.disabled = true;

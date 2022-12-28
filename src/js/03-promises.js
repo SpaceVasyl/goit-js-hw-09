@@ -10,14 +10,12 @@ promiseButton.addEventListener("click", formHandler);
 
 function formHandler(event) {
   event.preventDefault();
-  const { amount, delay, step } = obj;
   for (let i = 1; i <= obj.amount; i++) {
     if (i <= obj.amount) {
         createPromise(i, Number(obj.delay), Number(obj.step)).then(({ position, delay, step }) => {
           console.log(`✅ Fulfilled promise ${position} in ${delay + (position - 1) * step}ms`);
-          // console.log(Number(delay) + (Number(position) - 1) * Number(step));
         })
-        .catch(({ position, delay }) => {
+        .catch(({ position, delay, step }) => {
           console.log(`❌ Rejected promise ${position} in ${delay + (position - 1) * step}ms`);
         });
     }
