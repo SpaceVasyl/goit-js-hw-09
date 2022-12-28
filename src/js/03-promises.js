@@ -13,12 +13,12 @@ function formHandler(event) {
   const { amount, delay, step } = obj;
   for (let i = 1; i <= obj.amount; i++) {
     if (i <= obj.amount) {
-        createPromise(obj.amount, obj.delay, obj.step).then(({ position, delay, step }) => {
-          console.log(`✅ Fulfilled promise ${i} in ${delay}ms`);
-          console.log(step);
+        createPromise(i, Number(obj.delay), Number(obj.step)).then(({ position, delay, step }) => {
+          console.log(`✅ Fulfilled promise ${position} in ${delay + (position - 1) * step}ms`);
+          // console.log(Number(delay) + (Number(position) - 1) * Number(step));
         })
         .catch(({ position, delay }) => {
-          console.log(`❌ Rejected promise ${i} in ${delay}ms`);
+          console.log(`❌ Rejected promise ${position} in ${delay + (position - 1) * step}ms`);
         });
     }
   }
@@ -31,7 +31,7 @@ function createPromise(position, delay, step) {
         resolve({position, delay, step});
       }
         reject({position, delay, step});
-      }, Number(obj.step));
+      }, delay + (position - 1) * step);
   })
 }
 
