@@ -11,14 +11,17 @@ const options = {
   defaultDate: new Date(),
   minuteIncrement: 1,
   onClose(selectedDates) {
-    console.log(selectedDates[0]);
+      console.log(selectedDates[0]);
+      console.log(options.defaultDate.getTime());
+      if (selectedDates[0] < options.defaultDate.getTime()) {
+          window.alert("Please choose a date in the future")
+      }
   },
 };
 flatpickr(inputTime, options);
 
 inputTime.addEventListener("input", timeIsMoney);
 function timeIsMoney(event) {
-    button.disabled = false;
     console.dir();
 }
 
