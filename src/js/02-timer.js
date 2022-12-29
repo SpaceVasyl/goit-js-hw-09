@@ -1,20 +1,22 @@
 import flatpickr from "flatpickr";
 import "flatpickr/dist/flatpickr.min.css";
+
+
 const inputTime = document.querySelector("#datetime-picker");
 const button = document.querySelector("button");
+flatpickr(inputTime);
 
-
-// button.addEventListener("click", timeIsMoney);
-// function timeIsMoney(event) { 
-// }
-const date1 = Date.now();
-setTimeout(() => {
-    const date2 = Date.now();
-        console.log('date1', date1);
-        console.log('date2', date2);
-        console.log(date2 - date1);
-    }, 3000);
-
-const timer = {
-    start(){}
+inputTime.addEventListener("input", timeIsMoney);
+function timeIsMoney(event) {
+    console.dir();
 }
+
+// const options = {
+//   enableTime: true,
+//   time_24hr: true,
+//   defaultDate: new Date(),
+//   minuteIncrement: 1,
+//   onClose(selectedDates) {
+//     console.log(selectedDates[0]);
+//   },
+// };
