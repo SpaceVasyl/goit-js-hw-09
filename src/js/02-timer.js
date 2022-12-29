@@ -43,6 +43,10 @@ function convertMs(ms) {
   // Remaining seconds
   const seconds = Math.floor((((ms % day) % hour) % minute) / second);
     console.log({ days, hours, minutes, seconds });
-    return { days, hours, minutes, seconds };
+    inputDays.innerHTML = days;
+    inputHour.innerHTML = hours;
+    inputMinute.innerHTML = minutes;
+    inputSeconds.innerHTML = seconds;
+    return { days, hours, minutes, seconds }; 
 }
 
