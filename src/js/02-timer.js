@@ -4,6 +4,10 @@ import "flatpickr/dist/flatpickr.min.css";
 let timerCountdown = null;
 const inputTime = document.querySelector("#datetime-picker");
 const button = document.querySelector("button");
+const inputDays = document.querySelector('[data-days]')
+const inputHour = document.querySelector('[data-hours]')
+const inputMinute = document.querySelector('[data-minutes]')
+const inputSeconds = document.querySelector('[data-seconds]')
 button.disabled = true;
 const options = {
   enableTime: true,
