@@ -16,6 +16,7 @@ const options = {
       if (selectedDates[0] < options.defaultDate.getTime()) {
           window.alert("Please choose a date in the future")
       }
+      
   },
 };
 flatpickr(inputTime, options);
