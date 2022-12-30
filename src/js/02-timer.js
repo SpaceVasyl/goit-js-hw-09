@@ -20,7 +20,6 @@ const options = {
       }
       else {
         timerCountdown = selectedDates[0] - options.defaultDate.getTime();
-        convertMs(timerCountdown);
         button.disabled = false;
       }
   },
@@ -42,7 +41,7 @@ function convertMs(ms) {
   const minutes = Math.floor(((ms % day) % hour) / minute);
   // Remaining seconds
   const seconds = Math.floor((((ms % day) % hour) % minute) / second);
-    console.log({ days, hours, minutes, seconds });
+    // console.log({ days, hours, minutes, seconds });
     inputDays.innerHTML = days;
     inputHour.innerHTML = hours;
     inputMinute.innerHTML = minutes;
@@ -50,3 +49,12 @@ function convertMs(ms) {
     return { days, hours, minutes, seconds }; 
 }
 
+button.addEventListener('click', timerCounting);
+function timerCounting(event) {
+  button.disabled = true;
+  setInterval(() => {
+    timerCountdown--
+    console.log(timerCountdown);
+  }, 1000);
+  
+}
