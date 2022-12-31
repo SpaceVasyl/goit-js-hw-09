@@ -21,11 +21,11 @@ const options = {
       else {
         timerCountdown = selectedDates[0] - options.defaultDate.getTime();
         button.disabled = false;
-        inputTime.disabled = true;
       }
   },
 };
 flatpickr(inputTime, options);
+
 
 function convertMs(ms) {
   // Number of milliseconds per unit of time
@@ -42,17 +42,20 @@ function convertMs(ms) {
   const minutes = Math.floor(((ms % day) % hour) / minute);
   // Remaining seconds
   const seconds = Math.floor((((ms % day) % hour) % minute) / second);
-    // console.log({ days, hours, minutes, seconds });
-    inputDays.innerHTML = days;
-    inputHour.innerHTML = hours;
-    inputMinute.innerHTML = minutes;
-    inputSeconds.innerHTML = seconds;
+  
+  
+    
+    // inputDays.innerHTML = addLeadingZero(days);
+    // inputHour.innerHTML = addLeadingZero(hours);
+    // inputMinute.innerHTML = addLeadingZero(minutes);
+    // inputSeconds.innerHTML = addLeadingZero(seconds);
     return  { days, hours, minutes, seconds }; 
 }
 
 button.addEventListener('click', timerCounting);
 function timerCounting(event) {
   button.disabled = true;
+  inputTime.disabled = true;
   timerId = setInterval(() => {
     timerCountdown = timerCountdown - 1000;
     convertMs(timerCountdown);
@@ -65,4 +68,3 @@ function timerCounting(event) {
     }
   }, 1000);
 }
-
