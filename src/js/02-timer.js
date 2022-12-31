@@ -26,11 +26,9 @@ const options = {
 };
 flatpickr(inputTime, options);
 
-function addLeadingZero(value) {
-  const numb = value;
-  console.log(typeof numb);
-  return numb;
-}
+
+
+
 function convertMs(ms) {
   // Number of milliseconds per unit of time
   const second = 1000;
@@ -46,16 +44,18 @@ function convertMs(ms) {
   const minutes = Math.floor(((ms % day) % hour) / minute);
   // Remaining seconds
   const seconds = Math.floor((((ms % day) % hour) % minute) / second);
-  
-  
     
-    inputDays.innerHTML = addLeadingZero(days);
-    inputHour.innerHTML = addLeadingZero(hours);
-    inputMinute.innerHTML = addLeadingZero(minutes);
-    inputSeconds.innerHTML = addLeadingZero(seconds);
-    return  { days, hours, minutes, seconds }; 
+    addLeadingZero({ days, hours, minutes, seconds }); 
 }
+function addLeadingZero(value) {
 
+  
+  inputDays.innerHTML = value.days;
+  inputHour.innerHTML = value.hours;
+  inputMinute.innerHTML = value.minutes;
+  inputSeconds.innerHTML = value.seconds;
+console.log(value);
+}
 button.addEventListener('click', timerCounting);
 function timerCounting(event) {
   button.disabled = true;
@@ -72,3 +72,7 @@ function timerCounting(event) {
     }
   }, 1000);
 }
+// inputDays.innerHTML = addLeadingZero(days);
+// inputHour.innerHTML = addLeadingZero(hours);
+// inputMinute.innerHTML = addLeadingZero(minutes);
+// inputSeconds.innerHTML = addLeadingZero(seconds);
