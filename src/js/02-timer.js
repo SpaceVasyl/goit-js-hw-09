@@ -64,5 +64,5 @@ function timerCounting(event) {
       return;
     }
   }, 1000);
-  
 }
+
