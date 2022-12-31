@@ -26,7 +26,11 @@ const options = {
 };
 flatpickr(inputTime, options);
 
-
+function addLeadingZero(value) {
+  const numb = value;
+  console.log(typeof numb);
+  return numb;
+}
 function convertMs(ms) {
   // Number of milliseconds per unit of time
   const second = 1000;
@@ -45,10 +49,10 @@ function convertMs(ms) {
   
   
     
-    // inputDays.innerHTML = addLeadingZero(days);
-    // inputHour.innerHTML = addLeadingZero(hours);
-    // inputMinute.innerHTML = addLeadingZero(minutes);
-    // inputSeconds.innerHTML = addLeadingZero(seconds);
+    inputDays.innerHTML = addLeadingZero(days);
+    inputHour.innerHTML = addLeadingZero(hours);
+    inputMinute.innerHTML = addLeadingZero(minutes);
+    inputSeconds.innerHTML = addLeadingZero(seconds);
     return  { days, hours, minutes, seconds }; 
 }
 
