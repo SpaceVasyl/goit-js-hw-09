@@ -21,6 +21,7 @@ const options = {
       else {
         timerCountdown = selectedDates[0] - options.defaultDate.getTime();
         button.disabled = false;
+        inputTime.disabled = true;
       }
   },
 };
@@ -46,15 +47,15 @@ function convertMs(ms) {
     inputHour.innerHTML = hours;
     inputMinute.innerHTML = minutes;
     inputSeconds.innerHTML = seconds;
-    return { days, hours, minutes, seconds }; 
+    return  { days, hours, minutes, seconds }; 
 }
 
 button.addEventListener('click', timerCounting);
 function timerCounting(event) {
   button.disabled = true;
   setInterval(() => {
-    timerCountdown--
-    console.log(timerCountdown);
+    timerCountdown = timerCountdown - 1000;
+    convertMs(timerCountdown);
   }, 1000);
-  
+  return;
 }
