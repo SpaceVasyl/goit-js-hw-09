@@ -53,9 +53,16 @@ function convertMs(ms) {
 button.addEventListener('click', timerCounting);
 function timerCounting(event) {
   button.disabled = true;
-  setInterval(() => {
+  timerId = setInterval(() => {
     timerCountdown = timerCountdown - 1000;
     convertMs(timerCountdown);
+    if (timerCountdown <= 0) {
+      clearInterval(timerId);
+      alert('Time is out!');
+      button.disabled = false;
+      inputTime.disabled = false;
+      return;
+    }
   }, 1000);
-  return;
+  
 }
