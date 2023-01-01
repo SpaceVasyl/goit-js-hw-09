@@ -1,5 +1,6 @@
 import flatpickr from "flatpickr";
 import "flatpickr/dist/flatpickr.min.css";
+import Notiflix from 'notiflix';
 
 let timerCountdown = null;
 const inputTime = document.querySelector("#datetime-picker");
@@ -16,7 +17,7 @@ const options = {
   minuteIncrement: 1,
   onClose(selectedDates) {
       if (selectedDates[0] < options.defaultDate.getTime()) {
-          alert("Please choose a date in the future")
+        Notiflix.Notify.failure("Please choose a date in the future");
       }
       else {
         timerCountdown = selectedDates[0] - options.defaultDate.getTime();
@@ -49,21 +50,11 @@ function convertMs(ms) {
 }
 function addLeadingZero(value) {
   const timerParam = Object.values(value);
-  const timerParamToString = timerParam.map(timerParam => timerParam.toString());
-
-  for (let i = timerParamToString[0]; i < timerParamToString.length; i++) {
-    if (timerParamToString[i].length > 2) {
-      timerParamToString[i].padStart(2, '0');
-      console.log(timerParamToString[i]);
-    }
-  }
-  
-  
+  const timerParamToString = timerParam.map(timerParam => timerParam.toString().padStart(2, '0'));
   inputDays.innerHTML = timerParamToString[0];
   inputHour.innerHTML = timerParamToString[1];
   inputMinute.innerHTML = timerParamToString[2];
   inputSeconds.innerHTML = timerParamToString[3];
-// console.log(value);
 }
 button.addEventListener('click', timerCounting);
 function timerCounting(event) {
@@ -74,7 +65,7 @@ function timerCounting(event) {
     convertMs(timerCountdown);
     if (timerCountdown <= 0) {
       clearInterval(timerId);
-      alert('Time is out!');
+      Notiflix.Notify.failure('Time is out!');
       button.disabled = false;
       inputTime.disabled = false;
       return;
