@@ -48,13 +48,22 @@ function convertMs(ms) {
     addLeadingZero({ days, hours, minutes, seconds }); 
 }
 function addLeadingZero(value) {
+  const timerParam = Object.values(value);
+  const timerParamToString = timerParam.map(timerParam => timerParam.toString());
 
+  for (let i = timerParamToString[0]; i < timerParamToString.length; i++) {
+    if (timerParamToString[i].length > 2) {
+      timerParamToString[i].padStart(2, '0');
+      console.log(timerParamToString[i]);
+    }
+  }
   
-  inputDays.innerHTML = value.days;
-  inputHour.innerHTML = value.hours;
-  inputMinute.innerHTML = value.minutes;
-  inputSeconds.innerHTML = value.seconds;
-console.log(value);
+  
+  inputDays.innerHTML = timerParamToString[0];
+  inputHour.innerHTML = timerParamToString[1];
+  inputMinute.innerHTML = timerParamToString[2];
+  inputSeconds.innerHTML = timerParamToString[3];
+// console.log(value);
 }
 button.addEventListener('click', timerCounting);
 function timerCounting(event) {
