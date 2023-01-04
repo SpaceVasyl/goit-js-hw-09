@@ -27,9 +27,6 @@ const options = {
 };
 flatpickr(inputTime, options);
 
-
-
-
 function convertMs(ms) {
   // Number of milliseconds per unit of time
   const second = 1000;
@@ -72,7 +69,3 @@ function timerCounting(event) {
     }
   }, 1000);
 }
-// inputDays.innerHTML = addLeadingZero(days);
-// inputHour.innerHTML = addLeadingZero(hours);
-// inputMinute.innerHTML = addLeadingZero(minutes);
-// inputSeconds.innerHTML = addLeadingZero(seconds);
