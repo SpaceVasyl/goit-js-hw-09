@@ -12,6 +12,7 @@ startButton.addEventListener("click", () => {
     timerActive = true;
     timerNumb = setInterval(() => {
         elementBody.style.backgroundColor = getRandomHexColor();
+        console.log("assad");
         }, 1000);
 });
 
