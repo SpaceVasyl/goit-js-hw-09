@@ -62,9 +62,9 @@ function timerCounting(event) {
     convertMs(timerCountdown);
     if (timerCountdown <= 0) {
       clearInterval(timerId);
-      Notiflix.Notify.failure('Time is out!');
       button.disabled = false;
       inputTime.disabled = false;
+      Notiflix.Notify.failure('Time is out!');
       return;
     }
   }, 1000);
