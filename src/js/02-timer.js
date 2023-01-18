@@ -57,7 +57,7 @@ button.addEventListener('click', timerCounting);
 function timerCounting(event) {
   button.disabled = true;
   inputTime.disabled = true;
-  timerId = setInterval(() => {
+  const timerId = setInterval(() => {
     timerCountdown = timerCountdown - 1000;
     convertMs(timerCountdown);
     if (timerCountdown <= 0) {
